@@ -1,16 +1,49 @@
 ---
+import Card from "../components/Card.astro";
+import "../styles/style.css";
 
+const evolve1 =
+  "https://content.cambridgeone.org/stage/final/bundles/evpel1_bundle/assets/evtrl1/Evolve_1_1%5B1%5D.png";
+const evolve2 =
+  "https://content.cambridgeone.org/stage/final/bundles/evpel2_bundle/assets/evpel2/Evolve_2_1%5B1%5D.png";
+const evolve3 = "https://m.media-amazon.com/images/I/91orsq5ZNZL._SY425_.jpg";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>English Cambridge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@300;400;600;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1>Respuestas de Libros <br /> Cambridge</h1>
+    <div class="cont-card">
+      <Card urlImagen={evolve1} titulo={"Evolve 1"} />
+      <Card urlImagen={evolve2} titulo={"Evolve 2"} />
+      <Card urlImagen={evolve3} titulo={"Evolve 3"} />
+    </div>
+  </body>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .cont-card {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+    }
+  </style>
 </html>
