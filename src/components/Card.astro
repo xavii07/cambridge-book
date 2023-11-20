@@ -2,18 +2,21 @@
 interface Props {
   urlImagen: string;
   titulo: string;
+  incompleto?: boolean;
 }
 
-const { urlImagen, titulo } = Astro.props;
+const { urlImagen, titulo, incompleto } = Astro.props;
 ---
 
 <div class="card">
   <div class="content">
     <div class="back">
       <div class="back-content">
-        <img src={urlImagen} />
+        <img src={urlImagen} height="176" width="176" />
         <strong>{titulo}</strong>
-        <small class="small">Completo 12 Unidades</small>
+        <small class=`${incompleto ? "small_i" : "small_c"}`
+          >{incompleto ? "Proximamente" : "Completo 12 Unidades"}</small
+        >
       </div>
     </div>
     <div class="front">
@@ -69,6 +72,7 @@ const { urlImagen, titulo } = Astro.props;
   .card {
     overflow: visible;
     width: 190px;
+    margin-top: 2rem;
     height: 300px;
   }
 
@@ -81,10 +85,16 @@ const { urlImagen, titulo } = Astro.props;
     border-radius: 5px;
   }
 
-  .small {
+  .small_c {
     font-size: 0.6rem;
     font-weight: 300;
     color: #5cf703;
+  }
+
+  .small_i {
+    font-size: 0.6rem;
+    font-weight: 300;
+    color: #f70303;
   }
 
   .front,
