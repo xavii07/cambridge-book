@@ -59,3 +59,18 @@ h1 {
   align-items: center;
   gap: 2rem;
 }
+
+@media (max-width: 768px) {
+  .body {
+    height: auto;
+  }
+
+  .cont-card {
+    flex-direction: column;
+  }
+
+  h1 {
+    font-size: 1.1rem;
+    margin-top: 1rem;
+  }
+}
