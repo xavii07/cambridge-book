@@ -1,5 +1,7 @@
 ---
+import Boton from "../components/Boton.astro";
 import Card from "../components/Card.astro";
+import Message from "../components/Message.astro";
 import "../styles/style.css";
 
 const evolve1 =
@@ -8,6 +10,45 @@ const evolve2 =
   "https://content.cambridgeone.org/stage/final/bundles/evpel2_bundle/assets/evpel2/Evolve_2_1%5B1%5D.png";
 const evolve3 =
   "https://assets.cambridge.org/97811084/05270/cover/9781108405270.jpg";
+
+//TODO: Imagenes capturas level 1
+import imagenL11 from "../assets/level1/1.png";
+import imagenL12 from "../assets/level1/2.png";
+import imagenL13 from "../assets/level1/3.png";
+import imagenL14 from "../assets/level1/4.png";
+import imagenL15 from "../assets/level1/5.png";
+import imagenL16 from "../assets/level1/6.png";
+import imagenL17 from "../assets/level1/7.png";
+
+//TODO: Imagenes capturas level 2
+import imagenL21 from "../assets/level2/1.png";
+import imagenL22 from "../assets/level2/2.png";
+import imagenL23 from "../assets/level2/3.png";
+import imagenL24 from "../assets/level2/4.png";
+import imagenL25 from "../assets/level2/5.png";
+import imagenL26 from "../assets/level2/6.png";
+import imagenL27 from "../assets/level2/7.png";
+import Modal from "../components/Modal.astro";
+
+const imagenesLevel1 = [
+  imagenL11,
+  imagenL12,
+  imagenL13,
+  imagenL14,
+  imagenL15,
+  imagenL16,
+  imagenL17,
+];
+
+const imagenesLevel2 = [
+  imagenL21,
+  imagenL22,
+  imagenL23,
+  imagenL24,
+  imagenL25,
+  imagenL26,
+  imagenL27,
+];
 ---
 
 <html lang="en">
@@ -23,28 +64,54 @@ const evolve3 =
       href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@300;400;600;800&display=swap"
       rel="stylesheet"
     />
+    <!--TODO: Bootstrap   -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
+"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"></script>
   </head>
   <body>
-    <h1>Respuestas de Libros <br /> Cambridge</h1>
-    <div class="cont-card">
-      <Card urlImagen={evolve1} titulo={"Evolve 1"} />
-      <Card urlImagen={evolve2} titulo={"Evolve 2"} />
-      <Card urlImagen={evolve3} titulo={"Evolve 3"} incompleto={true} />
+    <div class="body">
+      <h1>Respuestas de Libros <br /> Cambridge</h1>
+      <div class="cont-card">
+        <Card urlImagen={evolve1} titulo={"Evolve 1"} modalId="modalLevel1" />
+        <Card urlImagen={evolve2} titulo={"Evolve 2"} modalId="modalLevel2" />
+        <Card
+          urlImagen={evolve3}
+          titulo={"Evolve 3"}
+          incompleto={true}
+          modalId="modalLevel3"
+        />
+      </div>
+      <Boton />
     </div>
+
+    <div class="body2">
+      <Message />
+    </div>
+
+    <Modal
+      imagenes={imagenesLevel1}
+      modalId="modalLevel1"
+      carouselType="carouselExampleInterval"
+    />
+    <Modal
+      imagenes={imagenesLevel2}
+      modalId="modalLevel2"
+      carouselType="carouselExampleFade"
+    />
   </body>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    .cont-card {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 2rem;
-    }
-  </style>
 </html>

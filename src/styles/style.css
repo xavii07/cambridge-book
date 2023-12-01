@@ -1,12 +1,32 @@
 body {
-  font-family: "Martian Mono", monospace;
+  font-family: "Martian Mono", monospace !important;
+  color: #fff !important;
+  overflow-x: hidden;
+}
+
+.body {
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: #fff;
+  background: "#000";
+  background: linear-gradient(
+      rgba(226, 232, 240, 0.603),
+      rgba(77, 29, 148, 0.726)
+    ),
+    url("https://assets.cambridgeone.org/onboarding/1698234928547/img/bg-image.jpg");
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply;
+}
+.body2 {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   background: "#000";
   background: linear-gradient(
       rgba(226, 232, 240, 0.603),
@@ -25,4 +45,17 @@ h1 {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.cont-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
 }
