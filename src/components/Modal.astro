@@ -1,0 +1,54 @@
+---
+import { Image } from "astro:assets";
+interface Props {
+  imagenes: ImageMetadata[];
+  modalId: string;
+  carouselType: string;
+}
+
+const { imagenes, modalId, carouselType } = Astro.props;
+---
+
+<div
+  class="modal fade"
+  id={modalId}
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div id={carouselType} class="carousel slide carousel-fade">
+        <div class="carousel-inner">
+          {
+            imagenes.map((imagen: ImageMetadata, index) => {
+              return (
+                <div class={`carousel-item ${index === 0 ? "active" : ""}`}>
+                  <Image src={imagen} alt="First slide" class="d-block w-100" />
+                </div>
+              );
+            })
+          }
+        </div>
+        <button
+          class="carousel-control-prev bg-dark"
+          type="button"
+          data-bs-target={`#${carouselType}`}
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next bg-dark"
+          type="button"
+          data-bs-target={`#${carouselType}`}
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
