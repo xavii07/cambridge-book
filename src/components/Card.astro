@@ -3,16 +3,17 @@ interface Props {
   urlImagen: string;
   titulo: string;
   incompleto?: boolean;
+  modalId: string;
 }
 
-const { urlImagen, titulo, incompleto } = Astro.props;
+const { urlImagen, titulo, incompleto, modalId } = Astro.props;
 ---
 
 <div class="card">
   <div class="content">
     <div class="back">
       <div class="back-content">
-        <img src={urlImagen} height="176" width="176" />
+        <img src={urlImagen} height="200" width="200" />
         <strong>{titulo}</strong>
         <small class=`${incompleto ? "small_i" : "small_c"}`
           >{incompleto ? "Proximamente" : "Completo 12 Unidades"}</small
@@ -27,12 +28,22 @@ const { urlImagen, titulo, incompleto } = Astro.props;
       </div>
 
       <div class="front-content">
-        <small class="badge">Pasta</small>
+        <small class="badge">Capturas</small>
+        <button
+          data-bs-toggle="modal"
+          data-bs-target={`#${modalId}`}
+          type="button"
+          class="btn"
+        >
+          <i class="bi bi-grid-1x2-fill" style="font-size: 30px; color:#fff"
+          ></i>
+        </button>
         <div class="description">
           <div class="title">
             <p class="title">
-              <strong>Spaguetti Bolognese</strong>
+              <strong>{titulo}</strong>
             </p>
+
             <svg
               fill-rule="nonzero"
               height="15px"
@@ -61,7 +72,9 @@ const { urlImagen, titulo, incompleto } = Astro.props;
               ></svg
             >
           </div>
-          <p class="card-footer">30 Mins &nbsp; | &nbsp; 1 Serving</p>
+          <p class="card-footer">
+            <span class="precio">$10 Dolares</span> &nbsp; | &nbsp; 12 Unidades
+          </p>
         </div>
       </div>
     </div>
@@ -71,9 +84,9 @@ const { urlImagen, titulo, incompleto } = Astro.props;
 <style>
   .card {
     overflow: visible;
-    width: 190px;
+    width: 250px;
     margin-top: 2rem;
-    height: 300px;
+    height: 350px;
   }
 
   .content {
@@ -85,14 +98,20 @@ const { urlImagen, titulo, incompleto } = Astro.props;
     border-radius: 5px;
   }
 
-  .small_c {
+  .precio {
     font-size: 0.6rem;
+    font-weight: 400;
+    color: rgb(96, 207, 59);
+  }
+
+  .small_c {
+    font-size: 0.8rem;
     font-weight: 300;
     color: #5cf703;
   }
 
   .small_i {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     font-weight: 300;
     color: #f70303;
   }
